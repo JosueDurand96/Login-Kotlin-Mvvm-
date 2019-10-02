@@ -14,7 +14,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            tools:context=".View.MainActivity">
         <LinearLayout
                 android:layout_centerInParent="true"
                 android:orientation="vertical"
@@ -27,7 +27,7 @@
                     android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:addTextChangedListener="@{ViewModel.emailTextWatcher}"/>
+                    app:addTextChangedListener="@{viewModel.emailTextWatcher}"/>
             <EditText
                     android:id="@+id/edt_password"
                     android:hint="Password"
@@ -35,7 +35,7 @@
                     android:padding="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:addTextChangedListener="@{ViewModel.passwordTextWatcher}"/>
+                    app:addTextChangedListener="@{viewModel.passwordTextWatcher}"/>
             <Button
                     android:id="@+id/btn_login"
                     android:text="Iniciar Sesión"
