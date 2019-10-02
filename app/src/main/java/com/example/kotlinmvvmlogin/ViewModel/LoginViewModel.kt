@@ -54,10 +54,15 @@ class LoginViewModel (private val listener:LoginResultCallBacks):ViewModel(){
 
     //create function to process Login Button clicked
     fun onLoginClicked(v: View){
-        if (user.isDataValid)
-            listener.onSuccess("Login Exitoso")
+        var loginCode:Int = user.isDataValid()
+        if (loginCode == 0)
+            listener.onError("Email must not be null")
+        else if (loginCode == 1)
+            listener.onError("Wrong email Pattern")
+        else if (loginCode == 2)
+            listener.onError("Password length must greater than 6")
         else
-            listener.onError("Login Error")
+            listener.onSuccess("Login Succes")
     }
 
 

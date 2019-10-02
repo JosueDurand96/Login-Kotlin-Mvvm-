@@ -6,10 +6,17 @@ import android.util.Patterns
 import java.util.regex.Pattern
 
 class User (private var email: String, private  var password: String): BaseObservable() {
-    val isDataValid:Boolean
-    get()=(!TextUtils.isEmpty(getEmail()))
-            && Patterns.EMAIL_ADDRESS.matcher(getEmail()).matches()
-            && getPassword().length>6
+    fun isDataValid():Int{
+        if (TextUtils.isEmpty(getEmail()))
+            return  0
+        else if (!Patterns.EMAIL_ADDRESS.matcher(getEmail()).matches())
+            return  1
+        else if (getPassword().length<7)
+            return 2
+        else
+            return -1
+    }
+
 
 
      fun getPassword(): String{
