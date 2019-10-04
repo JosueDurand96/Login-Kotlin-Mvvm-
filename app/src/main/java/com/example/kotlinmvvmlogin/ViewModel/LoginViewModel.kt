@@ -56,13 +56,13 @@ class LoginViewModel (private val listener:LoginResultCallBacks):ViewModel(){
     fun onLoginClicked(v: View){
         var loginCode:Int = user.isDataValid()
         if (loginCode == 0)
-            listener.onError("Email must not be null")
+            listener.onError("el correo electrónico no debe estar vacío")
         else if (loginCode == 1)
-            listener.onError("Wrong email Pattern")
+            listener.onError("No es un patrón correcto de email")
         else if (loginCode == 2)
-            listener.onError("Password length must greater than 6")
+            listener.onError("La longitud de la contraseña debe ser mayor que 6")
         else
-            listener.onSuccess("Login Succes")
+            listener.onSuccess("Acceso exitoso")
     }
 
 
